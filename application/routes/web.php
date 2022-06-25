@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClassroomrController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +29,12 @@ Route::get('/dashboard', function () {
     ]);
 });
 
+
 Route::get('/dashboard/{slug}', [UserController::class, 'index']);
 Route::get('/dashboard/{slug}/{classroom}', [ClassroomrController::class, 'index']);
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
