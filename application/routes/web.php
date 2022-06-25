@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClassroomrController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +25,11 @@ Route::get('/dashboard', function () {
       'title' => 'Dashboard',
       'data' => User::all()
     ]);
+});
+
+Route::get('/dashboard/{slug}', [UserController::class, 'index']);
+Route::get('/dashboard/{slug}/{classroom}', [ClassroomrController::class, 'index']);
+
+Route::get('/login', function () {
+    return view('login');
 });

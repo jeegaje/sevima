@@ -12,6 +12,6 @@ class Lesson extends Model
     use HasFactory;
 
     public function classroom(){
-      return $this->belongsTo(Classroom::class)
+      return $this->belongsTo(Classroom::class);
     }
 }
