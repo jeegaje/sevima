@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Classroom;
+use App\Models\User;
 
-class User extends Model
+class Classroom extends Model
 {
     use HasFactory;
 
-    public function classroom(){
-      return $this->hasMany(Classroom::class);
+    public function user(){
+      return $this->belongsTo(User::class);
     }
 }
