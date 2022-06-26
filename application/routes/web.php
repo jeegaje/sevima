@@ -19,7 +19,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/dashboard', function () {
@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/{slug}', [UserController::class, 'index']);
 Route::get('/dashboard/{slug}/{classroom}', [ClassroomrController::class, 'index']);
+Route::post('/addClassroom/{user_id}', [ClassroomrController::class, 'addClassroom']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);

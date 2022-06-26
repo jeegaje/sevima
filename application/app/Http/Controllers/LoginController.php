@@ -23,7 +23,7 @@ class LoginController extends Controller
       $users = User::all();
       foreach ($users as $user) {
         if ($data['email']==$user['email'] && Hash::check($data['password'], $user['password'])) {
-          return redirect()->intended('/dashboard');
+          return redirect()->intended("/dashboard/".$user['slug']);
         }
       }
 
